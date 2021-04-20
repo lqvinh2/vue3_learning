@@ -6,7 +6,7 @@
      <Modal :title="title" :header="header" theme="sale" @App_CloseModal="ToogleModal"/>
   </div>
 
-  <button type="button" class="btn btn-secondary" @click="ToogleModal">Show modal</button>
+  <button type="button" class="btn btn-secondary" @click.left="ToogleModal">Show modal</button>
  
 </template>
 
