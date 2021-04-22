@@ -23,7 +23,7 @@
   <h2>using props in setup()</h2>
 
 
-  <button @click="isShowPosts = !isShowPosts">Show post</button>
+  <button @click="isShowPosts = !isShowPosts">{{isShowPosts === true ? "Hide post" : "Show post"}}</button>
   <PostList v-if="isShowPosts" :posts="posts" ></PostList>
  <button @click="posts.pop()">Delete post</button>
   </div>
@@ -99,11 +99,13 @@ export default {
     ]);
 
     console.log(p.value);
-
+        
+    
     /////////////////////////////////////////////////////
  const isShowPosts = ref(true);
 
     return {
+      
       isShowPosts,
       posts,
       names,
