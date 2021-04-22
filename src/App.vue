@@ -1,7 +1,5 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> 
-  </div>
+ 
   <router-view/>
 </template>
 
@@ -19,9 +17,10 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  max-width: 600px;
+  /* text-align: center; */
+  max-width: 95%;
   color: #2c3e50;
+  align-self: center;
 }
 
 </style>
