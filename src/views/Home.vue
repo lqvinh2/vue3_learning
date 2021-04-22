@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed } from "vue";
+import { ref, reactive, computed, watch, watchEffect } from "vue";
 import PostList from '../components/PostList.vue'
 
 export default {
@@ -66,7 +66,7 @@ export default {
       nameTwo = "name two 2"; // not working
     };
 
-    /////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////// watch
 
     let searchValue = ref("");
     let computeSearchValue = computed(
@@ -86,6 +86,15 @@ export default {
       // return ['a', 'b', 'c']
       return names.value.filter((name) => name.includes(searchValue.value));
     });
+
+    watch(searchValue, ()=>{
+        console.log("watch() ran" + searchValue.value);
+    });
+
+    watchEffect(()=>{
+        console.log("watchEffect() ran" + searchValue.value);
+    });
+
 
     /////////////////////////////////////////////////////
     const posts = ref([
