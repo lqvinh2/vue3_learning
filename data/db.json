@@ -1,17 +1,154 @@
 {
-    "projects": [
-      {
-        "id": 1,
-        "title": "Create new homepage banner",
-        "details": "Lorem ipsum",
-        "complete": false
-      },
-      {
-        "id": 2,
-        "title": "Make marketing email",
-        "details": "Lorem ipsum",
-        "complete": true
-      }
-    ]
-  }
-  
+  "posts": [
+    {
+      "id": 1,
+      "title": "welcome to the new blog",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tags": [
+        "webdev",
+        "coding",
+        "news"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "top 5 CSS tips",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tags": [
+        "css",
+        "webdev",
+        "coding"
+      ]
+    },
+    {
+      "id": 7304,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 5986,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 5319,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 1883,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 1132,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 9069,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 8450,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 4885,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 8296,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 9050,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 8227,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 3917,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    },
+    {
+      "id": 4238,
+      "title": "asdasd",
+      "body": "asdasd",
+      "tags": [
+        "asda",
+        "wd345",
+        "sdfsdf"
+      ]
+    }
+  ]
+}
