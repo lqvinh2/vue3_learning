@@ -4,6 +4,8 @@
   <div v-if="post" class="post">
     <h3>{{ post.title }}</h3>
     <p class="pre">{{ post.body }}</p>
+
+    <div v-for="tag in post.tags" :key="tag">#{{ tag }}</div>
   </div>
   <div v-else><Spinner /></div>
 </template>
@@ -12,12 +14,15 @@
 import getPost from "../composables/getPost";
 import Spinner from "../components/Spinner.vue";
 
+import {useRoute} from 'vue-router'
+
 export default {
   props: ["id"],
   components: { Spinner },
   setup(props) {
-    console.log("get 1");
-    const { error, post, load } = getPost(props.id);
+    const router = useRoute();
+    // const { error, post, load } = getPost(props.id); // it is ok but also do like below using router.params.id
+     const { error, post, load } = getPost(router.params.id);
 
     load();
 

@@ -10,18 +10,26 @@
       <div v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</div>
       <button>Add Post</button>
     </form>
+
+   
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
+import { useRouter } from 'vue-router'
+
 
 export default {
+
+
   setup() {
     const title = ref("");
     const body = ref("");
     const tags = ref([]);
     const tag = ref("");
+
+    const router = useRouter();
 
     const handleKeydown = () => {
       if (!tags.value.includes(tag.value)) {
@@ -44,6 +52,8 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
       });
+
+      router.push({ name: 'Home' })
     };
 
     return { body, title, tags, tag, handleKeydown, HandleSubmit };

@@ -1,12 +1,22 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> 
+<Navbar></Navbar>
   </div>
   <router-view/>
 </template>
 
 
 
+<script>
+import  Navbar  from '../src/components/Navbar.vue'
+export default ({
+
+  components : {Navbar},
+  setup() {
+    
+  },
+})
+</script>
 
 
 <style>
