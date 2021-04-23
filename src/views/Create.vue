@@ -18,7 +18,7 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from 'vue-router'
-import { projectFirestore } from '../fireBase/config';
+import { projectFirestore , timestamp } from '../fireBase/config';
 
 
 export default {
@@ -41,11 +41,14 @@ export default {
     };
 
     const HandleSubmit = async () => {
+
+
       const post = {
         id: Math.floor(Math.random() * 10000),
         title: title.value,
         body: body.value,
         tags: tags.value,
+        createAt : timestamp()
       };
       let res = projectFirestore.collection("posts").add(post);
       
