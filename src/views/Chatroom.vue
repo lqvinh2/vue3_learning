@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div v-if="user" class="container">
     <Navbar />
     <NewChatForm></NewChatForm>
   </div>
@@ -23,14 +23,14 @@ export default {
     // if the user value is ever null, redirect to welcome screen
     watch(user, () => {
       if (!user.value) {
-        //router.push({ name: "Welcome" });
+        router.push({ name: "Welcome" });
         isShow.value = false;
       } else {
         isShow.value = true;
       }
     });
 
-    return { isShow };
+    return { user, isShow };
   },
 };
 </script>
