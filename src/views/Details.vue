@@ -8,25 +8,39 @@
     <div v-for="tag in post.tags" :key="tag">#{{ tag }}</div>
   </div>
   <div v-else><Spinner /></div>
+
+  <button @click="HandleDelete">DELETE POST</button>
 </template>
 
 <script>
 import getPost from "../composables/getPost";
 import Spinner from "../components/Spinner.vue";
 
-import {useRoute} from 'vue-router'
+import { routerKey, useRoute, useRouter } from "vue-router";
+import { projectFirestore } from "../fireBase/config";
 
 export default {
   props: ["id"],
   components: { Spinner },
   setup(props) {
-    const router = useRoute();
-    // const { error, post, load } = getPost(props.id); // it is ok but also do like below using router.params.id
-     const { error, post, load } = getPost(router.params.id);
+    const route = useRoute();
+    const router = useRouter();
+    // const { error, post, load } = getPost(props.id); // it is ok but also do like below using route.params.id
+    const { error, post, load } = getPost(route.params.id);
 
     load();
 
-    return { error, post };
+    const HandleDelete = () => {
+      try {
+        const res = projectFirestore
+          .collection("posts")
+          .doc(props.id)
+          .delete();
+        router.push({ name: "Home" });
+      } catch (error) {}
+    };
+
+    return { error, post, HandleDelete };
   },
 };
 </script>
