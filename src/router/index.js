@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Chatroom from "../views/Chatroom.vue";
 
-import Welcome from "../views/Welcome.vue";
+import Home from "../views/Home.vue";
+import Login from "../views/auth/Login.vue";
+import Signup from "../views/auth/Signup.vue";
+import CreatePlaylist from "../views/playlists/CreatePlaylist.vue";
 
 import { projectAuth } from "../fireBase/config";
 
@@ -28,16 +30,23 @@ const requireNoAuth = (to, from, next) => {
 const routes = [
   {
     path: "/",
-    name: "Welcome",
-    component: Welcome,
-    beforeEnter: requireNoAuth,
+    name: "Home",
+    component: Home,
   },
-
   {
-    path: "/chatroom",
-    name: "Chatroom",
-    component: Chatroom,
-    beforeEnter: requireAuth,
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/signup",
+    name: "Signup",
+    component: Signup,
+  },
+  {
+    path: "/playlists/create",
+    name: "CreatePlaylist",
+    component: CreatePlaylist,
   },
 ];
 
