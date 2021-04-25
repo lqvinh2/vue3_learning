@@ -1,31 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <div v-if="error" class="error">Could not fetch the data</div>
 
-    <div v-if="projects.length">
-      <div v-for="project in projects" :key="project.id">
-        <p>{{ project.title }}</p>
+    <div v-if="documents">
+      <div v-for="doc in documents" :key="doc.id">
+        <div>{{ doc.id }}</div>
       </div>
+
+      <ListView :playlists="documents" />
     </div>
   </div>
 </template>
 
 <script>
+import getCollection from "../composables/getCollection";
+import ListView from "../components/ListView.vue";
 export default {
   name: "Home",
-  components: {},
+  components: { ListView },
+  setup() {
+    const { error, documents } = getCollection("playlists");
 
-  data() {
-    return {
-      projects: [],
-    };
-  }, // end data
-
-  mounted() {
-    // fetch('http://localhost:3000/projects')
-    // .then(res => res.json())
-    // .then((data) => {this.projects = data; console.log(data)})
-    // .catch(err => console.log(err.message))
-  }, // end mounted
+    return { error, documents };
+  },
 };
 </script>

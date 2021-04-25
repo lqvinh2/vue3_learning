@@ -5,14 +5,15 @@ import Login from "../views/auth/Login.vue";
 import Signup from "../views/auth/Signup.vue";
 import CreatePlaylist from "../views/playlists/CreatePlaylist.vue";
 
+import PlaylistDetails from "../views/playlists/PlaylistDetails.vue";
+
 import { projectAuth } from "../fireBase/config";
 
 // auth guards
 const requireAuth = (to, from, next) => {
   let user = projectAuth.currentUser;
-  console.log("current user in auth guard: ", user);
   if (!user) {
-    next({ name: "Welcome" });
+    next({ name: "Login" });
   } else {
     next();
   }
@@ -32,6 +33,7 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    beforeEnter: requireAuth,
   },
   {
     path: "/login",
@@ -47,6 +49,15 @@ const routes = [
     path: "/playlists/create",
     name: "CreatePlaylist",
     component: CreatePlaylist,
+    beforeEnter: requireAuth,
+  },
+
+  {
+    path: "/playlists/:id",
+    name: "PlaylistDetails",
+    component: PlaylistDetails,
+    props: true,
+    beforeEnter: requireAuth,
   },
 ];
 

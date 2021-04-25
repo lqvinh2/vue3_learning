@@ -25,6 +25,7 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import useStorage from "../../composables/useStorage";
 
 import useCollection from "../../composables/useCollection";
@@ -35,7 +36,7 @@ export default {
   setup() {
     // allowed file types
     const types = ["image/png", "image/jpeg"];
-
+    const router = useRouter();
     const { error, addDoc } = useCollection("playlists");
     const { user } = getUser();
 
@@ -51,7 +52,7 @@ export default {
       if (file.value) {
         isPending.value = true;
         await uploadImage(file.value);
-        await addDoc({
+        const res = await addDoc({
           title: title.value,
           description: description.value,
           userId: user.value.uid,
@@ -63,7 +64,7 @@ export default {
         });
         isPending.value = false;
         if (!error.value) {
-          console.log("playlist added");
+          router.push({ name: "PlaylistDetails", params: { id: res.id } });
         }
       }
     }; // handleSubmit
